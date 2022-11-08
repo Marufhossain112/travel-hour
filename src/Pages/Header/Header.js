@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assests/logo.jpeg";
 import "./Header.css";
@@ -6,6 +6,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <div>
+      {/* navbar */}
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -103,14 +104,16 @@ const Header = () => {
           <Link className="btn">Get started</Link>
         </div>
       </div>
+      {/* banner */}
       <div className="Container relative">
         <div className="banner ">
-          <div >
+          <div>
             <p className="banner-text text-center">WHERE TO GO NEXT</p>
-            <p className="second-heading">Ready For meeting new culture</p>
+            <p className="second-heading">Your Tour Guide Is Ready Here</p>
           </div>
         </div>
       </div>
+      {/* services */}
     </div>
   );
 };
