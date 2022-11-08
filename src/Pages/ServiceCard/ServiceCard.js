@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 
 const ServiceCard = ({ services }) => {
   const { tour_name, img, price, desc } = services;
-  const handleDetails = (id) => {
-    console.log(`I am clicked, ${services._id}`);
-  };
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl">

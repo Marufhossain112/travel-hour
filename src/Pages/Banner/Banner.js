@@ -1,24 +1,16 @@
 import React, { useEffect, useState } from "react";
+import "./Banner.css";
 import { Link } from "react-router-dom";
-import Footer from "../Footer/Footer";
 import HeaderService from "../HeaderService/HeaderService";
-import Navbar from "../Navbar/Navbar";
-import "./Header.css";
-
-const Headers = () => {
+const Banner = () => {
   const [homeService, setHomeService] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/servicesLimit")
       .then((res) => res.json())
       .then((data) => setHomeService(data));
   }, []);
-  // console.log(homeService);
-
   return (
     <div>
-      {/* navbar */}
-      <Navbar></Navbar>
-      {/* banner */}
       <div className="Container relative">
         <div className="banner ">
           <div>
@@ -35,13 +27,11 @@ const Headers = () => {
       </div>
       <div className="text-center mb-5">
         <Link to="/services">
-        <button className="btn btn-primary">See All</button>
+          <button className="btn btn-primary">See All</button>
         </Link>
       </div>
-      {/* footer */}
-      <Footer></Footer>
     </div>
   );
 };
 
-export default Headers;
+export default Banner;
