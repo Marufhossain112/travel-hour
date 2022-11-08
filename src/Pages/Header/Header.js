@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assests/logo.jpeg";
+import "./Header.css";
 
 const Header = () => {
   return (
@@ -100,6 +101,14 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           <Link className="btn">Get started</Link>
+        </div>
+      </div>
+      <div className="Container relative">
+        <div className="banner ">
+          <div >
+            <p className="banner-text text-center">WHERE TO GO NEXT</p>
+            <p className="second-heading">Ready For meeting new culture</p>
+          </div>
         </div>
       </div>
     </div>
