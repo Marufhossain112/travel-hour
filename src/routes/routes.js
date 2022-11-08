@@ -1,14 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "../layouts/Main/Main";
+// import Main from "../layouts/Main/Main";
 import Services from "../Pages/Services/Services";
+
+import Headers from "../Pages/Header/Headers";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
-    children: [
-    
-    ],
+    element: <Headers></Headers>,
+    children:[
+      {
+        path:'/',
+        element:<Headers></Headers>
+      },
+    ]
   },
   {
     path: "/services",

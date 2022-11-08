@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Footer from "../Footer/Footer";
 import HeaderService from "../HeaderService/HeaderService";
 import Navbar from "../Navbar/Navbar";
 import "./Header.css";
 
-const Header = () => {
+const Headers = () => {
   const [homeService, setHomeService] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/servicesLimit")
       .then((res) => res.json())
       .then((data) => setHomeService(data));
   }, []);
-  console.log(homeService);
+  // console.log(homeService);
 
   return (
     <div>
@@ -37,8 +38,10 @@ const Header = () => {
         <button className="btn btn-primary">See All</button>
         </Link>
       </div>
+      {/* footer */}
+      <Footer></Footer>
     </div>
   );
 };
 
-export default Header;
+export default Headers;
