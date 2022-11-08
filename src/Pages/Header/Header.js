@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import HeaderService from "../HeaderService/HeaderService";
 import Navbar from "../Navbar/Navbar";
 import "./Header.css";
 
 const Header = () => {
+  const [homeService, setHomeService] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/servicesLimit")
+      .then((res) => res.json())
+      .then((data) => setHomeService(data));
+  }, []);
+  console.log(homeService);
+
   return (
     <div>
       {/* navbar */}
@@ -17,6 +26,11 @@ const Header = () => {
         </div>
       </div>
       {/* services */}
+      <div className="max-w-6xl mx-auto grid grid-cols-3 gap-20 my-10">
+        {homeService.map((service) => (
+          <HeaderService key={service._id} service={service}></HeaderService>
+        ))}
+      </div>
     </div>
   );
 };
