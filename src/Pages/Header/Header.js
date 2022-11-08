@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import HeaderService from "../HeaderService/HeaderService";
 import Navbar from "../Navbar/Navbar";
 import "./Header.css";
@@ -30,6 +31,11 @@ const Header = () => {
         {homeService.map((service) => (
           <HeaderService key={service._id} service={service}></HeaderService>
         ))}
+      </div>
+      <div className="text-center mb-5">
+        <Link to="/services">
+        <button className="btn btn-primary">See All</button>
+        </Link>
       </div>
     </div>
   );
