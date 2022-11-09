@@ -59,7 +59,7 @@ const ServiceDetails = () => {
           <div className="flex justify-center items-center my-20">
             <textarea
               className="textarea textarea-bordered mx-4"
-              placeholder="Bio"
+              placeholder="Enter your review"
             ></textarea>
             <button className="btn btn-primary">Add Review</button>
           </div>
