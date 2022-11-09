@@ -4,7 +4,10 @@ import logo from "../../assests/logo.jpeg";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Navbar = () => {
-  const { user } = useContext(MyContext);
+  const { user, logOut } = useContext(MyContext);
+  const handlelogOut = () => {
+    logOut();
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -84,12 +87,18 @@ const Navbar = () => {
         <div>
           {user?.email ? (
             <>
-              <button className="btn btn-outline">Log Out</button>
+              <button onClick={handlelogOut} className="btn btn-outline">
+                Log Out
+              </button>
             </>
           ) : (
             <>
-              <button className="btn btn-outline">Log in</button>
-              <button className="btn btn-outline">Register</button>
+              <Link className="mx-2" to="/login">
+                <button className="btn btn-outline">Log in</button>
+              </Link>
+              <Link to="/register">
+                <button className="btn btn-outline">Register</button>
+              </Link>
             </>
           )}
         </div>
