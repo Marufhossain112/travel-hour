@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const AddServiceCard = ({ services }) => {
   //   console.log(services);
@@ -25,11 +27,15 @@ const AddServiceCard = ({ services }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
-        <img
-          style={{ height: "256px", width: "385px" }}
-          src={img}
-          alt="travel"
-        />
+        <PhotoProvider>
+          <PhotoView src={img}>
+            <img
+              style={{ height: "256px", width: "385px" }}
+              src={img}
+              alt="Shoes"
+            />
+          </PhotoView>
+        </PhotoProvider>
       </figure>
       <div className="card-body">
         <h2 className="card-title">{tour_name}</h2>
