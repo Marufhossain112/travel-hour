@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
   const { signUpUser } = useContext(MyContext);

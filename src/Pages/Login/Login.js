@@ -1,9 +1,21 @@
 import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-  const { signIn } = useContext(MyContext);
+  const { signIn, googleSignIn } = useContext(MyContext);
+  const googleProvider = new GoogleAuthProvider();
+  const handleGoogleSignIn = () => {
+    googleSignIn(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {});
+  };
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -66,6 +78,18 @@ const Login = () => {
 
             <div className="form-control mt-2">
               <button className="btn btn-primary">Login</button>
+            </div>
+            <div className="form-control mt-2">
+              <button
+                onClick={handleGoogleSignIn}
+                className="btn btn-outline btn-accent"
+              >
+                <span>
+                  {" "}
+                  <FcGoogle style={{ fontSize: "22px" }} />
+                </span>
+                <span style={{ marginLeft: "5px" }}> Sign in with Google</span>
+              </button>
             </div>
           </form>
         </div>

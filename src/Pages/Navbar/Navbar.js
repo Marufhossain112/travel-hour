@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assests/logo.jpeg";
+import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user } = useContext(MyContext);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -79,7 +81,18 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn">Get started</Link>
+        <div>
+          {user?.email ? (
+            <>
+              <button className="btn btn-outline">Log Out</button>
+            </>
+          ) : (
+            <>
+              <button className="btn btn-outline">Log in</button>
+              <button className="btn btn-outline">Register</button>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
