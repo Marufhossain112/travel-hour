@@ -5,6 +5,8 @@ import Main from "../layouts/Main/Main";
 import Banner from "../Pages/Banner/Banner";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+
 
 export const router = createBrowserRouter([
   {

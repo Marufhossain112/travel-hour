@@ -6,6 +6,9 @@ import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(MyContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleSignIn = () => {
     googleSignIn(googleProvider)
@@ -16,9 +19,7 @@ const Login = () => {
       })
       .catch((error) => {});
   };
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
