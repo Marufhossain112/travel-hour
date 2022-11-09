@@ -1,14 +1,36 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const Reviews = () => {
   const reviews = useLoaderData();
+  const [displayReviews, setDisplayReviews] = useState(reviews);
   //   console.log(reviews);
-
+  const handleDelete = (rev) => {
+    const agree = window.confirm(
+      `Are you sure you want to delete: ${rev.service_name}`
+    );
+    if (agree) {
+      fetch(`http://localhost:5000/reviews/${rev._id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            toast.success("Successfully deleted");
+            const remainingReviews = displayReviews.filter(
+              (review) => review._id !== rev._id
+            );
+            setDisplayReviews(remainingReviews);
+          }
+        });
+    }
+  };
   return (
     <div>
       {reviews.length < 1 ? (
         <div className="flex justify-center items-center text-4xl h-[530px]">
-          <p>No Reviews Were Found</p>
+          <p>No Reviews Were Added</p>
         </div>
       ) : (
         <>
@@ -27,7 +49,7 @@ const Reviews = () => {
                 </tr>
               </thead>
               <tbody>
-                {reviews.map((rvw) => (
+                {displayReviews.map((rvw) => (
                   <tr>
                     <td>{rvw.service_name}</td>
                     <td>{rvw.user_email}</td>
@@ -36,7 +58,11 @@ const Reviews = () => {
                       <button className="btn btn-outline">Update</button>
                     </td>
                     <td>
-                      <button className="btn btn-circle btn-outline">
+                      <button
+                        onClick={() => handleDelete(rvw)}
+                        className="btn btn-circle btn-outline"
+                      >
+                        <Toaster />
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6"

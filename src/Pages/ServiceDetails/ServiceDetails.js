@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
-
+import toast, { Toaster } from "react-hot-toast";
 const ServiceDetails = () => {
   const { user } = useContext(MyContext);
   console.log(user);
@@ -33,7 +33,14 @@ const ServiceDetails = () => {
       body: JSON.stringify(reviewDetails),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.insertedId) {
+          event.target.reset();
+          toast.success("Review Added Successfully");
+          console.log(data);
+        }
+        console.log(data);
+      });
   };
   return (
     <div>
@@ -93,6 +100,7 @@ const ServiceDetails = () => {
               placeholder="Enter your review"
             ></textarea>
             <button className="btn btn-primary">Add Review</button>
+            <Toaster/>
           </form>
         ) : (
           <div className="flex justify-center my-5 text-3xl font-semibold">
