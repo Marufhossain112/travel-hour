@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
 
@@ -8,7 +8,27 @@ const ServiceDetails = () => {
   // console.log(details);
   const { tour_name, img, desc, review } = details[0];
   // console.log(review);
+  const [reviews, setReviews] = useState({});
+  const handleBlur = (event) => {
+    const review_field = event.target.name;
+    const review_text = event.target.value;
+    // console.log(review_field, review_text);
+    const newReviews = { ...reviews };
+    newReviews[review_field] = review_text;
+    setReviews(newReviews);
+  };
+  const handleReviewBtn = (event) => {
+    event.preventDefault();
+    // console.log(reviews);
 
+    fetch("http://localhost:5000/reviews", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(reviews),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return (
     <div>
       {/* Package details section */}
@@ -56,13 +76,18 @@ const ServiceDetails = () => {
         </div>
         {/* add review */}
         {user?.email ? (
-          <div className="flex justify-center items-center my-20">
+          <form
+            onSubmit={handleReviewBtn}
+            className="flex justify-center items-center my-20"
+          >
             <textarea
+              onBlur={handleBlur}
+              name="review"
               className="textarea textarea-bordered mx-4"
               placeholder="Enter your review"
             ></textarea>
             <button className="btn btn-primary">Add Review</button>
-          </div>
+          </form>
         ) : (
           <div className="flex justify-center my-5 text-3xl font-semibold">
             <Link to="/login">Please login to add a review</Link>
