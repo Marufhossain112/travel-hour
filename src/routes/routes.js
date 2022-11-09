@@ -6,7 +6,8 @@ import Banner from "../Pages/Banner/Banner";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-
+import Reviews from "../Pages/Reviews/Reviews";
+import AddService from "../Pages/AddService/AddService";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,16 @@ export const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
+        loader: () => fetch("http://localhost:5000/services"),
+      },
+      {
+        path: "/reviews",
+        element: <Reviews></Reviews>,
+        loader: () => fetch("http://localhost:5000/services"),
+      },
+      {
+        path: "/addservice",
+        element: <AddService></AddService>,
         loader: () => fetch("http://localhost:5000/services"),
       },
       {
