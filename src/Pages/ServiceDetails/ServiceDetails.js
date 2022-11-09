@@ -5,10 +5,16 @@ import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
 const ServiceDetails = () => {
   const { user } = useContext(MyContext);
   const details = useLoaderData();
-  // console.log(details);
-  const { tour_name, img, desc, review } = details[0];
+  // console.log(details[0]);
+  const { tour_name, _id, desc, review } = details[0];
   // console.log(review);
   const [reviews, setReviews] = useState({});
+  const reviewDetails = {
+    review_title: reviews,
+    service_name: tour_name,
+    service_id: _id,
+    user_email: user?.email,
+  };
   const handleBlur = (event) => {
     const review_field = event.target.name;
     const review_text = event.target.value;
@@ -24,7 +30,7 @@ const ServiceDetails = () => {
     fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(reviews),
+      body: JSON.stringify(reviewDetails),
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
