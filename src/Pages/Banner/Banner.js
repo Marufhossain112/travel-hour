@@ -25,10 +25,38 @@ const Banner = () => {
           <HeaderService key={service._id} service={service}></HeaderService>
         ))}
       </div>
+      {/* see all button */}
       <div className="text-center mb-5">
         <Link to="/services">
           <button className="btn btn-primary">See All</button>
         </Link>
+      </div>
+      {/* discount offer */}
+      <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content flex-col lg:flex-row">
+          <img src="https://i.ibb.co/wgWDg51/man.png" alt="man.jpg" />
+          <div>
+            <h1 className="text-4xl font-thin mb-5">Last Moment Offer</h1>
+            <h1 className="text-5xl font-bold">ZURICH, SWITZERLAND</h1>
+            <div className="mt-4 mb-0">
+              <span className="mr-3 text-red-600 line-through font-medium text-3xl">
+                $2000
+              </span>
+              <span className="text-green-400  font-medium text-3xl">
+                $1600
+              </span>
+              <span></span>
+            </div>
+            <p className="pb-6 pt-3">
+              Switzerland is a poet’s muse, and there is a little bit of magic
+              in almost all its corners. That’s how the beauty of this place
+              will inspire you to travel more; it is a bag full of the most
+              delightful surprises. If Switzerland is on your mind and you are a
+              first timer, here are the places you shouldn’t miss.
+            </p>
+            <button className="btn btn-primary">Book Now</button>
+          </div>
+        </div>
       </div>
     </div>
   );
