@@ -4,10 +4,10 @@ import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const ServiceDetails = () => {
   const { user } = useContext(MyContext);
+  console.log(user);
+
   const details = useLoaderData();
-  // console.log(details[0]);
   const { tour_name, _id, desc, review } = details[0];
-  // console.log(review);
   const [reviews, setReviews] = useState({});
   const reviewDetails = {
     review_title: reviews,
