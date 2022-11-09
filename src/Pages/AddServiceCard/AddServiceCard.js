@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddServiceCard = ({ services }) => {
   //   console.log(services);
-  const { tour_name, img, price, desc, _id } = services;
+  const { tour_name, img, price, desc } = services;
   const handleAddService = (services) => {
     // console.log(`I am adding service ${services}`);
     console.log(services);
@@ -14,7 +14,12 @@ const AddServiceCard = ({ services }) => {
       body: JSON.stringify(services),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Service Added Successfully");
+          console.log(data);
+        }
+      });
   };
 
   return (
@@ -41,6 +46,7 @@ const AddServiceCard = ({ services }) => {
           >
             Add Service
           </button>
+          <Toaster />
         </div>
       </div>
     </div>
