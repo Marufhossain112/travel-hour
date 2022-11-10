@@ -4,7 +4,7 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 
 const AddServiceCard = ({ services }) => {
-  //   console.log(services);
+    console.log(services);
   const { tour_name, img, price, desc } = services;
   const handleAddService = (services) => {
     // console.log(`I am adding service ${services}`);

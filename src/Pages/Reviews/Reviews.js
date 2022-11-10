@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { useTitle } from "../../Hooks/useTitle";
 
@@ -7,7 +7,7 @@ const Reviews = () => {
   useTitle("Reviews");
   const reviews = useLoaderData();
   const [displayReviews, setDisplayReviews] = useState(reviews);
-  //   console.log(reviews);
+  console.log(reviews);
   const handleDelete = (rev) => {
     const agree = window.confirm(
       `Are you sure you want to delete: ${rev.service_name}`
@@ -28,6 +28,7 @@ const Reviews = () => {
         });
     }
   };
+ 
   return (
     <div>
       {reviews.length < 1 ? (
@@ -57,14 +58,15 @@ const Reviews = () => {
                     <td>{rvw.user_email}</td>
                     <td>{rvw.review_title.review}</td>
                     <td>
-                      <button className="btn btn-outline">Update</button>
+                      <Link to={`/update/${rvw._id}`}>
+                        <button className="btn btn-outline">Edit Review</button>
+                      </Link>
                     </td>
                     <td>
                       <button
                         onClick={() => handleDelete(rvw)}
                         className="btn btn-circle btn-outline"
                       >
-                        <Toaster />
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6"
@@ -80,6 +82,7 @@ const Reviews = () => {
                           />
                         </svg>
                       </button>
+                      <Toaster />
                     </td>
                   </tr>
                 ))}
