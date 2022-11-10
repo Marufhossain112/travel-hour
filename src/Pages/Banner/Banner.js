@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import HeaderService from "../HeaderService/HeaderService";
 import { FaHandsHelping } from "react-icons/fa";
 import { RiGoogleFill } from "react-icons/ri";
-import { BsCurrencyDollar} from "react-icons/bs";
+import { BsCurrencyDollar } from "react-icons/bs";
 const Banner = () => {
   const [homeService, setHomeService] = useState([]);
   useEffect(() => {
@@ -97,7 +97,7 @@ const Banner = () => {
         <div className="card w-96 bg-base-100 shadow-xl">
           <div className="card-body">
             <span className="text-6xl">
-          <BsCurrencyDollar></BsCurrencyDollar>
+              <BsCurrencyDollar></BsCurrencyDollar>
             </span>
             <h2 className="card-title">BEST PRICE GUARANTEE</h2>
             <p>

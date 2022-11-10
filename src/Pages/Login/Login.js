@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { GoogleAuthProvider } from "firebase/auth";
+import { useTitle } from "../../Hooks/useTitle";
 
 const Login = () => {
+  useTitle("Login");
   const { signIn, googleSignIn } = useContext(MyContext);
   const navigate = useNavigate();
   const location = useLocation();

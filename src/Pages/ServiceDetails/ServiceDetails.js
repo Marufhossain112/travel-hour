@@ -2,7 +2,9 @@ import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import { useTitle } from "../../Hooks/useTitle";
 const ServiceDetails = () => {
+  useTitle("Service Details");
   const { user } = useContext(MyContext);
   console.log(user);
 

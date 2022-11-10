@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
-import { FcGoogle } from "react-icons/fc";
+import { useTitle } from "../../Hooks/useTitle";
 
 const Register = () => {
+  useTitle("Register");
   const { signUpUser } = useContext(MyContext);
   const handleFormSubmit = (event) => {
     event.preventDefault();
