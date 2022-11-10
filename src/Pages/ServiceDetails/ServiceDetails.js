@@ -29,7 +29,7 @@ const ServiceDetails = () => {
     event.preventDefault();
     // console.log(reviews);
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://service-review-server-self.vercel.app/reviews", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(reviewDetails),

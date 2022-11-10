@@ -22,15 +22,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: (
-            <Login></Login>
-        ),
+        element: <Login></Login>,
       },
       {
         path: "/register",
-        element: (
-            <Register></Register>
-        ),
+        element: <Register></Register>,
       },
       {
         path: "/blogs",
@@ -39,7 +35,8 @@ export const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () =>
+          fetch("https://service-review-server-self.vercel.app/services"),
       },
       {
         path: "/reviews",
@@ -48,7 +45,8 @@ export const router = createBrowserRouter([
             <Reviews></Reviews>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/reviews"),
+        loader: () =>
+          fetch("https://service-review-server-self.vercel.app/reviews"),
       },
       {
         path: "/addservice",
@@ -57,19 +55,24 @@ export const router = createBrowserRouter([
             <AddService></AddService>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/addservice"),
+        loader: () =>
+          fetch("https://service-review-server-self.vercel.app/addservice"),
       },
       {
         path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://service-review-server-self.vercel.app/services/${params.id}`
+          ),
       },
       {
         path: "/update/:id",
         element: <UpdateReview></UpdateReview>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/reviews/${params.id}`),
+          fetch(
+            `https://service-review-server-self.vercel.app/reviews/${params.id}`
+          ),
       },
     ],
   },

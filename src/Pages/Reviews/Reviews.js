@@ -13,9 +13,12 @@ const Reviews = () => {
       `Are you sure you want to delete: ${rev.service_name}`
     );
     if (agree) {
-      fetch(`http://localhost:5000/reviews/${rev._id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://service-review-server-self.vercel.app/reviews/${rev._id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {

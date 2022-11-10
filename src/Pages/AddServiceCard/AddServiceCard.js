@@ -4,13 +4,13 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 
 const AddServiceCard = ({ services }) => {
-    console.log(services);
+  console.log(services);
   const { tour_name, img, price, desc } = services;
   const handleAddService = (services) => {
     // console.log(`I am adding service ${services}`);
     console.log(services);
 
-    fetch("http://localhost:5000/servicesLimit", {
+    fetch("https://service-review-server-self.vercel.app/servicesLimit", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(services),

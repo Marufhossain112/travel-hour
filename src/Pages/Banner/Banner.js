@@ -8,7 +8,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 const Banner = () => {
   const [homeService, setHomeService] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/servicesLimit")
+    fetch("https://service-review-server-self.vercel.app/servicesLimit")
       .then((res) => res.json())
       .then((data) => setHomeService(data));
   }, []);
