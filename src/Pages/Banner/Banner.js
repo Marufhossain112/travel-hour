@@ -3,7 +3,7 @@ import "./Banner.css";
 import { Link } from "react-router-dom";
 import HeaderService from "../HeaderService/HeaderService";
 import { FaHandsHelping } from "react-icons/fa";
-import { RiGoogleFill, RiGuideFill } from "react-icons/ri";
+import { RiGoogleFill } from "react-icons/ri";
 import { BsCurrencyDollar} from "react-icons/bs";
 const Banner = () => {
   const [homeService, setHomeService] = useState([]);

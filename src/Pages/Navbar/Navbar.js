@@ -78,6 +78,9 @@ const Navbar = () => {
           <li>
             <Link to="/services">Services</Link>
           </li>
+          <li>
+            <Link to="/blogs">Blogs</Link>
+          </li>
           {user?.email && (
             <>
               <li>
