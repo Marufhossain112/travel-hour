@@ -28,7 +28,7 @@ const Reviews = () => {
         });
     }
   };
- 
+
   return (
     <div>
       {reviews.length < 1 ? (
