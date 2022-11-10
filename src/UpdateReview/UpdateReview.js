@@ -7,7 +7,22 @@ const UpdateReview = () => {
   console.log(reviewData);
   const handleUpdateReview = (event) => {
     event.preventDefault();
-    console.log(review);
+    // console.log(review);
+    fetch(`http://localhost:5000/reviews/${reviewData._id}`, {
+      method: 'PUT',
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify(review)
+  })
+  .then(res => res.json())
+  .then(data => {
+      if (data.modifiedCount > 0){
+          alert('user updated')
+          console.log(data);
+      }
+
+  })
   };
 
   const handleonChange = (event) => {
