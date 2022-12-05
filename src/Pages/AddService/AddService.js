@@ -9,7 +9,7 @@ const AddService = () => {
   useTitle("Add Service");
   return (
     <div>
-      <div className="grid grid-cols-3 gap-20 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1  lg:grid-cols-3 gap-20 max-w-6xl mx-auto">
         {services.map((service) => (
           <AddServiceCard key={service._id} services={service}></AddServiceCard>
         ))}

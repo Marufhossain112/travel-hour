@@ -23,7 +23,7 @@ const Banner = () => {
         </div>
       </div>
       {/* services */}
-      <div className="max-w-6xl mx-auto grid grid-cols-3 gap-20 my-10">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-20 my-10">
         {homeService.map((service) => (
           <HeaderService key={service._id} service={service}></HeaderService>
         ))}
