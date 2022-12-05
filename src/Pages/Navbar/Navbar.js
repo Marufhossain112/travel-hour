@@ -68,12 +68,15 @@ const Navbar = () => {
           </ul>
         </div>
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            {/* <img src="https://placeimg.com/80/80/people" /> */}
-            <img src={logo} alt="logo" />
-          </div>
+          <Link to={"/"}>
+            <div className="w-10 rounded-full">
+              <img src={logo} alt="logo" />
+            </div>
+          </Link>
         </label>
-        <Link className="btn btn-ghost normal-case text-xl">Travel Hour</Link>
+        <Link to={"/"} className="btn btn-ghost normal-case text-xl">
+          Travel Hour
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{navItems}</ul>
