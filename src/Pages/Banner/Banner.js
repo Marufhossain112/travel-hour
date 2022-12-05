@@ -63,7 +63,7 @@ const Banner = () => {
       </div>
       {/* facilities */}
       <h1 className="text-center text-3xl font-sans mt-10">Why to Choose Me</h1>
-      <div className="max-w-6xl mx-auto grid grid-cols-3 gap-20">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-20">
         <div className="card w-96 bg-base-100 shadow-xl">
           <div className="card-body h-64">
             <span className="text-6xl">

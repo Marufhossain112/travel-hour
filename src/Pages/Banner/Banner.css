@@ -28,7 +28,7 @@ left: 31%; */
   left: 35%;
   font-size: 33px;
 }
-@media (min-width: 320px) {
+@media (min-width: 320px) and (max-width: 480px) {
   /* smartphones, iPhone, portrait 480x320 phones */
   .banner-text {
     font-size: 40px;

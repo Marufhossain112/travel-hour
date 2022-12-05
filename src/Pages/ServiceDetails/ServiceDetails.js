@@ -67,7 +67,7 @@ const ServiceDetails = () => {
         <h2 className="text-center my-8 text-4xl font-bold ">
           Travelers Reviews{" "}
         </h2>
-        <div className="grid grid-cols-3 max-w-6xl mx-auto gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 max-w-6xl mx-auto gap-10">
           {review.map((rev) => (
             <div className="max-w-6xl mx-auto">
               <div className="card w-96 h-72 bg-base-100 shadow-xl">
