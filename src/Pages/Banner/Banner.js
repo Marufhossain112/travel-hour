@@ -89,7 +89,7 @@ const Banner = () => {
         className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-20 my-10"
         data-aos="flip-up"
         data-aos-offset="0"
-        data-aos-duration="2200"
+        data-aos-duration="3000"
         data-aos-easing="ease-in"
       >
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
