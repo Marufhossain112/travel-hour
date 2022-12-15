@@ -5,6 +5,7 @@ import HeaderService from "../HeaderService/HeaderService";
 import { FaHandsHelping } from "react-icons/fa";
 import { RiGoogleFill } from "react-icons/ri";
 import { BsCurrencyDollar } from "react-icons/bs";
+import { Typewriter } from "react-simple-typewriter";
 const Banner = () => {
   const [homeService, setHomeService] = useState([]);
   useEffect(() => {
@@ -18,7 +19,18 @@ const Banner = () => {
         <div className="banner ">
           <div>
             <p className="banner-text text-center">WHERE TO GO NEXT</p>
-            <p className="second-heading">Your Tour Guide Is Ready Here</p>
+            <p className="second-heading">
+              Your Tour Guide Is
+              <Typewriter
+                words={[" Ready Here", " Brave", " Strong", " Genius"]}
+                loop={Infinity}
+                cursor
+                cursorStyle="_"
+                typeSpeed={500}
+                deleteSpeed={200}
+                delaySpeed={1000}
+              />
+            </p>
           </div>
         </div>
       </div>
