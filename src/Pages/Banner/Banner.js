@@ -14,7 +14,7 @@ const Banner = () => {
   }, []);
   return (
     <div>
-      <div className="Container relative">
+      <div className="Container relative mb-10">
         <div className="banner ">
           <div>
             <p className="banner-text text-center">WHERE TO GO NEXT</p>
@@ -23,7 +23,13 @@ const Banner = () => {
         </div>
       </div>
       {/* services */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-20 my-10">
+      <div
+        className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-20 my-10"
+        data-aos="fade"
+        data-aos-offset="400"
+        data-aos-duration="800"
+        data-aos-easing="ease-in-out"
+      >
         {homeService.map((service) => (
           <HeaderService key={service._id} service={service}></HeaderService>
         ))}
@@ -31,12 +37,20 @@ const Banner = () => {
       {/* see all button */}
       <div className="text-center mb-5">
         <Link to="/services">
-          <button className="btn btn-primary">See All</button>
+          <button className="btn btn-primary" data-aos="fade-out">
+            See All
+          </button>
         </Link>
       </div>
       {/* discount offer */}
       <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row">
+        <div
+          className="hero-content flex-col lg:flex-row"
+          data-aos="slide-up"
+          data-aos-offset="400"
+          data-aos-duration="2500"
+          data-aos-easing="ease-in-out"
+        >
           <img src="https://i.ibb.co/wgWDg51/man.png" alt="man.jpg" />
           <div>
             <h1 className="text-4xl font-thin mb-5">Last Moment Offer</h1>
@@ -62,8 +76,22 @@ const Banner = () => {
         </div>
       </div>
       {/* facilities */}
-      <h1 className="text-center text-3xl font-sans mt-10">Why to Choose Me</h1>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-20 my-10">
+      <h1
+        className="text-center text-3xl font-sans mt-10"
+        data-aos="slide-right"
+        data-aos-offset="400"
+        data-aos-duration="800"
+        data-aos-easing="ease-in"
+      >
+        Why to Choose Me
+      </h1>
+      <div
+        className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-20 my-10"
+        data-aos="flip-up"
+        data-aos-offset="0"
+        data-aos-duration="3000"
+        data-aos-easing="ease-in"
+      >
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
           <div className="card-body h-64">
             <span className="text-6xl">

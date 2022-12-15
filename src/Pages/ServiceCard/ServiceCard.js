@@ -7,7 +7,13 @@ const ServiceCard = ({ services }) => {
   const { tour_name, img, price, desc } = services;
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div
+      className="card w-96 bg-base-100 shadow-xl"
+      data-aos="fade-up"
+      data-aos-offset="400"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in"
+    >
       <figure>
         <PhotoProvider>
           <PhotoView src={img}>
