@@ -48,7 +48,7 @@ const Banner = () => {
           className="hero-content flex-col lg:flex-row"
           data-aos="slide-up"
           data-aos-offset="400"
-          data-aos-duration="2500"
+          data-aos-duration="1500"
           data-aos-easing="ease-in-out"
         >
           <img src="https://i.ibb.co/wgWDg51/man.png" alt="man.jpg" />
@@ -89,7 +89,7 @@ const Banner = () => {
         className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-20 my-10"
         data-aos="flip-up"
         data-aos-offset="0"
-        data-aos-duration="3000"
+        data-aos-duration="1500"
         data-aos-easing="ease-in"
       >
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
