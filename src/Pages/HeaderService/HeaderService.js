@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import { motion } from "framer-motion";
 
 const HeaderService = ({ service }) => {
   const { tour_name, img, price, desc } = service;
@@ -11,7 +12,11 @@ const HeaderService = ({ service }) => {
       <figure>
         <PhotoProvider>
           <PhotoView src={img}>
-            <img src={img} alt="Shoes" />
+            <motion.img
+              whileHover={{ scale: 1.2, transition: { duration: .7 } }}
+              src={img}
+              alt="Shoes"
+            />
           </PhotoView>
         </PhotoProvider>
       </figure>

@@ -27,6 +27,7 @@ left: 31%; */
   top: 53%;
   left: 35%;
   font-size: 33px;
+  font-family: "Poppins", sans-serif;
 }
 @media (min-width: 320px) and (max-width: 480px) {
   /* smartphones, iPhone, portrait 480x320 phones */
@@ -56,4 +57,7 @@ left: 31%; */
 }
 @media (min-width: 1281px) {
   /* hi-res laptops and desktops */
+}
+.banner-tittle {
+  font-family: "Montserrat", sans-serif;
 }

@@ -6,6 +6,7 @@ import { FaHandsHelping } from "react-icons/fa";
 import { RiGoogleFill } from "react-icons/ri";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { Typewriter } from "react-simple-typewriter";
+import { motion } from "framer-motion";
 const Banner = () => {
   const [homeService, setHomeService] = useState([]);
   useEffect(() => {
@@ -18,7 +19,7 @@ const Banner = () => {
       <div className="Container relative mb-10">
         <div className="banner ">
           <div>
-            <p className="banner-text text-center">WHERE TO GO NEXT</p>
+            <p className="banner-text text-center banner-tittle">WHERE TO GO NEXT</p>
             <p className="second-heading">
               Your Tour Guide Is
               <Typewriter
@@ -83,7 +84,12 @@ const Banner = () => {
               delightful surprises. If Switzerland is on your mind and you are a
               first timer, here are the places you shouldn’t miss.
             </p>
-            <button className="btn btn-primary">Book Now</button>
+            <motion.div
+              drag
+              dragConstraints={{ left: -100, right: 100, top:10,bottom:10 }}
+            >
+              <button className="btn btn-primary">Book Now</button>
+            </motion.div>
           </div>
         </div>
       </div>
