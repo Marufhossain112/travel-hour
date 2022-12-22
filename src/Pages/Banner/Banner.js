@@ -19,7 +19,9 @@ const Banner = () => {
       <div className="Container relative mb-10">
         <div className="banner ">
           <div>
-            <p className="banner-text text-center banner-tittle">WHERE TO GO NEXT</p>
+            <p className="banner-text text-center banner-tittle">
+              WHERE TO GO NEXT
+            </p>
             <p className="second-heading">
               Your Tour Guide Is
               <Typewriter
@@ -86,7 +88,7 @@ const Banner = () => {
             </p>
             <motion.div
               drag
-              dragConstraints={{ left: -100, right: 100, top:10,bottom:10 }}
+              dragConstraints={{ left: -100, right: 100, top: 10, bottom: 10 }}
             >
               <button className="btn btn-primary">Book Now</button>
             </motion.div>

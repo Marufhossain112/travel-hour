@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 
 const HeaderService = ({ service }) => {
   const { tour_name, img, price, desc } = service;
+  // console.log("service",service);
+  console.log(service);
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
@@ -13,7 +15,7 @@ const HeaderService = ({ service }) => {
         <PhotoProvider>
           <PhotoView src={img}>
             <motion.img
-              whileHover={{ scale: 1.2, transition: { duration: .7 } }}
+              whileHover={{ scale: 1.2, transition: { duration: 0.7 } }}
               src={img}
               alt="Shoes"
             />

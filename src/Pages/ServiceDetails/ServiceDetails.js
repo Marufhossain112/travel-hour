@@ -9,7 +9,11 @@ const ServiceDetails = () => {
   console.log(user);
 
   const details = useLoaderData();
+  console.log(details);
+  
   const { tour_name, _id, desc, review } = details[0];
+  console.log(tour_name,_id);
+  
   const [reviews, setReviews] = useState({});
   const reviewDetails = {
     review_title: reviews,
@@ -20,7 +24,7 @@ const ServiceDetails = () => {
   const handleBlur = (event) => {
     const review_field = event.target.name;
     const review_text = event.target.value;
-    // console.log(review_field, review_text);
+    console.log(review_field, review_text);
     const newReviews = { ...reviews };
     newReviews[review_field] = review_text;
     setReviews(newReviews);
@@ -52,7 +56,7 @@ const ServiceDetails = () => {
           <h2 className="text-center my-8 text-4xl font-bold">Tour Package </h2>
           <div className="card lg:card-side bg-base-100 shadow-xl">
             <div className="card-body">
-              <h2 className="card-title">{tour_name}</h2>
+               <h2 className="card-title">{tour_name}</h2>
               <p>{desc}</p>
               <div className="card-actions justify-end">
                 <button className="btn btn-primary">Book Now</button>

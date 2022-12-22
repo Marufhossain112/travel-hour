@@ -1,24 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { useTitle } from "../../Hooks/useTitle";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm();
+  const [signUpError, setSignUPError] = useState("");
   useTitle("Register");
   const { signUpUser } = useContext(MyContext);
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
+  const handleSignUp = (data) => {
     // console.log(email, password);
-    signUpUser(email, password)
+    setSignUPError("");
+    signUpUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        form.reset();
+        reset();
+        toast.success("Successfully created user");
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setSignUPError(error.message);
+      });
   };
   return (
     <div>
@@ -26,7 +36,7 @@ const Register = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left"></div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleFormSubmit} className="card-body">
+            <form onSubmit={handleSubmit(handleSignUp)} className="card-body">
               <h1 className="text-5xl font-bold text-center">Register now!</h1>
               <div className="form-control">
                 <label className="label">
@@ -37,7 +47,13 @@ const Register = () => {
                   placeholder="Name"
                   className="input input-bordered"
                   name="name"
+                  {...register("name", {
+                    required: "Name is Required",
+                  })}
                 />
+                {errors.name && (
+                  <p className="text-red-500">{errors.name.message}</p>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -48,7 +64,13 @@ const Register = () => {
                   type="text"
                   placeholder="email"
                   className="input input-bordered"
+                  {...register("email", {
+                    required: "Email is required",
+                  })}
                 />
+                {errors.email && (
+                  <p className="text-red-500">{errors.email.message}</p>
+                )}
               </div>
 
               <div className="form-control">
@@ -60,7 +82,22 @@ const Register = () => {
                   type="password"
                   placeholder="password"
                   className="input input-bordered"
+                  {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                      value: 6,
+                      message: "Password must be 6 characters long",
+                    },
+                    pattern: {
+                      value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                      message:
+                        "Password must have uppercase, number and special characters",
+                    },
+                  })}
                 />
+                {errors.password && (
+                  <p className="text-red-500">{errors.password.message}</p>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -72,6 +109,9 @@ const Register = () => {
                   placeholder="confirm password"
                   className="input input-bordered"
                 />
+                {errors.password && (
+                  <p className="text-red-500">{errors.password.message}</p>
+                )}
               </div>
               <p>
                 Already have an account ?{" "}
@@ -81,6 +121,7 @@ const Register = () => {
                 </Link>
               </p>
               <div className="form-control mt-2">
+                {signUpError && <p className="text-red-600">{signUpError}</p>}
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>
