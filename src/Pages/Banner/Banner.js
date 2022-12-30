@@ -52,7 +52,7 @@ const Banner = () => {
       {/* see all button */}
       <div className="text-center mb-5">
         <Link to="/services">
-          <button className="btn btn-primary" data-aos="fade-out">
+          <button className="btn btn-outline" data-aos="fade-out">
             See All
           </button>
         </Link>
@@ -90,7 +90,7 @@ const Banner = () => {
               drag
               dragConstraints={{ left: -100, right: 100, top: 10, bottom: 10 }}
             >
-              <button className="btn btn-primary">Book Now</button>
+              <button className="btn btn-outline">Book Now</button>
             </motion.div>
           </div>
         </div>
@@ -123,7 +123,7 @@ const Banner = () => {
               delay.
             </p>
             <div className="card-actions">
-              <button className="btn btn-primary">READ MORE</button>
+              <button className="btn btn-outline">READ MORE</button>
             </div>
           </div>
         </div>
@@ -138,7 +138,7 @@ const Banner = () => {
               you.Just knock me I will be with you.
             </p>
             <div className="card-actions mt-2">
-              <button className="btn btn-primary">READ MORE</button>
+              <button className="btn btn-outline">READ MORE</button>
             </div>
           </div>
         </div>
@@ -153,7 +153,7 @@ const Banner = () => {
               tour.
             </p>
             <div className="card-actions">
-              <button className="btn btn-primary">READ MORE</button>
+              <button className="btn btn-outline">READ MORE</button>
             </div>
           </div>
         </div>

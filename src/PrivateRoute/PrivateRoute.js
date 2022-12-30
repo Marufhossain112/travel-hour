@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-96">
-        <button className="btn btn-primary btn-circle loading"></button>
+        <button className="btn btn-outline btn-circle loading"></button>
       </div>
     );
   }

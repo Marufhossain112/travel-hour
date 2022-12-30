@@ -31,7 +31,7 @@ const ServiceCard = ({ services }) => {
         <div className="card-actions justify-center">
           {/* <button>View Details</button> */}
           <Link to={`/services/${services._id}`}>
-            <button className="btn btn-primary">View Details</button>
+            <button className="btn btn-outline">View Details</button>
           </Link>
         </div>
       </div>

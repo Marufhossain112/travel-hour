@@ -48,11 +48,10 @@ const AddServiceCard = ({ services }) => {
           {/* <button>View Details</button> */}
           <button
             onClick={() => handleAddService(services)}
-            className="btn btn-primary"
+            className="btn btn-outline"
           >
             Add Service
           </button>
-          <Toaster />
         </div>
       </div>
     </div>

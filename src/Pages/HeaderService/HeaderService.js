@@ -31,7 +31,7 @@ const HeaderService = ({ service }) => {
         </div>
         <div className="card-actions justify-center">
           <Link to={`/services/${service._id}`}>
-            <button className="btn btn-primary">View Details</button>
+            <button className="btn btn-outline">View Details</button>
           </Link>
         </div>
       </div>

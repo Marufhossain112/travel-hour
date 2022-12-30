@@ -17,16 +17,6 @@ const Navbar = () => {
       <li>
         <Link to="/blogs">Blogs</Link>
       </li>
-      <li>
-        <Link to="/login">
-          <button className="">Log in</button>
-        </Link>
-      </li>
-      <li>
-        <Link to="/register">
-          <button className="">Register</button>
-        </Link>
-      </li>
       {user?.email && (
         <>
           <li>
@@ -44,7 +34,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-black text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -85,17 +75,20 @@ const Navbar = () => {
         <div>
           {user?.email ? (
             <>
-              <button onClick={handlelogOut} className="btn btn-outline">
+              <button
+                onClick={handlelogOut}
+                className="btn btn-outline text-white"
+              >
                 Log Out
               </button>
             </>
           ) : (
             <div className="hidden lg:block">
-              <Link className="mx-2" to="/login">
-                <button className="btn  btn-outline">Log in</button>
+              <Link className="mx-2 " to="/login">
+                <button className="btn  btn-outline text-white">Log in</button>
               </Link>
               <Link to="/register">
-                <button className="btn btn-outline">Register</button>
+                <button className="btn btn-outline text-white">Register</button>
               </Link>
             </div>
           )}

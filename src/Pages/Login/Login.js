@@ -6,6 +6,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { useTitle } from "../../Hooks/useTitle";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import "./login.css";
 
 const Login = () => {
   const {
@@ -109,21 +110,20 @@ const Login = () => {
             </p>
 
             <div className="form-control mt-2">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-outline">Login</button>
             </div>
-            <div className="form-control mt-2">
-              <button
-                onClick={handleGoogleSignIn}
-                className="btn btn-outline btn-accent"
-              >
-                <span>
-                  {" "}
-                  <FcGoogle style={{ fontSize: "22px" }} />
-                </span>
-                <span style={{ marginLeft: "5px" }}> Sign in with Google</span>
-              </button>
-            </div>
+            <div className="form-control mt-2"></div>
           </form>
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn btn-accent btn-outline google-login"
+          >
+            <span>
+              {" "}
+              <FcGoogle style={{ fontSize: "22px" }} />
+            </span>
+            <span style={{ marginLeft: "5px" }}> Sign in with Google</span>
+          </button>
         </div>
       </div>
     </div>

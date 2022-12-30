@@ -10,7 +10,7 @@
   background-size: cover;
   color: white;
   padding: 20px;
-  opacity: 0.7;
+  /* opacity: 0.7; */
 }
 .banner-text {
   opacity: 1 !important;

@@ -85,7 +85,7 @@ const Reviews = () => {
                           />
                         </svg>
                       </button>
-                      <Toaster />
+                      {/* <Toaster /> */}
                     </td>
                   </tr>
                 ))}

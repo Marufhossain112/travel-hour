@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
+import { GoogleAuthProvider } from "firebase/auth";
 import { useTitle } from "../../Hooks/useTitle";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 
 const Register = () => {
   const {
@@ -24,11 +26,26 @@ const Register = () => {
         console.log(user);
         reset();
         toast.success("Successfully created user");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
         setSignUPError(error.message);
       });
+  };
+  const { signIn, googleSignIn } = useContext(MyContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const googleProvider = new GoogleAuthProvider();
+  const handleGoogleSignIn = () => {
+    googleSignIn(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {});
   };
   return (
     <div>
@@ -105,7 +122,7 @@ const Register = () => {
                 </label>
                 <input
                   name="confirm-password"
-                  type="text"
+                  type="password"
                   placeholder="confirm password"
                   className="input input-bordered"
                 />
@@ -122,9 +139,20 @@ const Register = () => {
               </p>
               <div className="form-control mt-2">
                 {signUpError && <p className="text-red-600">{signUpError}</p>}
-                <button className="btn btn-primary">Register</button>
+                <button className="btn btn-outline">Register</button>
               </div>
             </form>
+            <button
+              onClick={handleGoogleSignIn}
+              style={{ width: "20rem" }}
+              className="btn btn-accent btn-outline google-login "
+            >
+              <span>
+                {" "}
+                <FcGoogle style={{ fontSize: "22px" }} />
+              </span>
+              <span style={{ marginLeft: "5px" }}> Sign in with Google</span>
+            </button>
           </div>
         </div>
       </div>

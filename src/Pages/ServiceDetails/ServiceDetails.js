@@ -10,10 +10,10 @@ const ServiceDetails = () => {
 
   const details = useLoaderData();
   console.log(details);
-  
+
   const { tour_name, _id, desc, review } = details[0];
-  console.log(tour_name,_id);
-  
+  console.log(tour_name, _id);
+
   const [reviews, setReviews] = useState({});
   const reviewDetails = {
     review_title: reviews,
@@ -56,10 +56,10 @@ const ServiceDetails = () => {
           <h2 className="text-center my-8 text-4xl font-bold">Tour Package </h2>
           <div className="card lg:card-side bg-base-100 shadow-xl">
             <div className="card-body">
-               <h2 className="card-title">{tour_name}</h2>
+              <h2 className="card-title">{tour_name}</h2>
               <p>{desc}</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">Book Now</button>
+                <button className="btn btn-outline">Book Now</button>
               </div>
             </div>
           </div>
@@ -103,8 +103,8 @@ const ServiceDetails = () => {
               className="textarea textarea-bordered mx-4"
               placeholder="Enter your review"
             ></textarea>
-            <button className="btn btn-primary">Add Review</button>
-            <Toaster />
+            <button className="btn btn-outline">Add Review</button>
+            {/* <Toaster /> */}
           </form>
         ) : (
           <div className="flex justify-center my-5 text-3xl font-semibold">
