@@ -17,7 +17,7 @@ const Login = () => {
   } = useForm();
   useTitle("Login");
   const [loginError, setLoginError] = useState("");
-  const { signIn, googleSignIn } = useContext(MyContext);
+  const { signIn, googleSignIn, setLoading } = useContext(MyContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -27,6 +27,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setLoading(false);
         navigate(from, { replace: true });
       })
       .catch((error) => {});
@@ -40,12 +41,16 @@ const Login = () => {
         const user = result.user;
         toast.success("Successfully created user");
         console.log(user);
+
         reset();
         navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
-        setLoginError(error.message);
+        setLoginError(error.message.slice(22,36));
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
   return (

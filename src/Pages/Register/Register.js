@@ -16,7 +16,7 @@ const Register = () => {
   } = useForm();
   const [signUpError, setSignUPError] = useState("");
   useTitle("Register");
-  const { signUpUser } = useContext(MyContext);
+  const { signUpUser, setLoading, googleSignIn } = useContext(MyContext);
   const handleSignUp = (data) => {
     // console.log(email, password);
     setSignUPError("");
@@ -30,10 +30,13 @@ const Register = () => {
       })
       .catch((error) => {
         console.error(error);
-        setSignUPError(error.message);
+        setSignUPError(error.message.slice(22, 36));
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
-  const { signIn, googleSignIn } = useContext(MyContext);
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -43,6 +46,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setLoading(false);
         navigate(from, { replace: true });
       })
       .catch((error) => {});
