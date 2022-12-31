@@ -13,6 +13,7 @@
   /* opacity: 0.7; */
 }
 .banner-text {
+  
   opacity: 1 !important;
   position: absolute;
   top: 36%;
@@ -37,7 +38,7 @@ left: 31%; */
     left: 5%;
   }
   .second-heading {
-    top: 43%;
+    top: 49%;
     left: 7%;
     font-size: 26px;
     text-align: center;

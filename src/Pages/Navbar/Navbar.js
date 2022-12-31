@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assests/logo.jpeg";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
-
+import "./Navbar.css"
 const Navbar = () => {
   const { user, logOut } = useContext(MyContext);
 

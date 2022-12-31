@@ -39,7 +39,8 @@ const Banner = () => {
       </div>
       {/* services */}
       <div
-        className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-20 my-10"
+        // className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-20 my-10"
+        className="grid grid-cols-1 lg:grid-cols-3 gap-20 max-w-sm lg:max-w-6xl mx-auto service-container mt-5"
         data-aos="fade"
         data-aos-offset="400"
         data-aos-duration="800"

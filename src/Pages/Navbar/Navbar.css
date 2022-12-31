@@ -1,0 +1,15 @@
+/* Small devices (landscape phones, 576px and above till next break point) */
+@media (min-width: 320px) and (max-width: 767px) {
+  .navbar ul {
+    color: white;
+    background: black;
+}
+}
+
+/* Medium devices (tablets, 768px and above till next break point) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and above till next break point) */
+@media (min-width: 992px) {
+}
