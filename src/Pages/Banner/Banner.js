@@ -53,7 +53,7 @@ const Banner = () => {
       {/* see all button */}
       <div className="text-center mb-5">
         <Link to="/services">
-          <button className="btn btn-outline" data-aos="fade-out">
+          <button className="btn btn-outline mt-5" data-aos="fade-out">
             See All
           </button>
         </Link>
