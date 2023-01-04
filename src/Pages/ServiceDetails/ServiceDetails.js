@@ -3,7 +3,18 @@ import { Link, useLoaderData } from "react-router-dom";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import { useTitle } from "../../Hooks/useTitle";
+import { useQuery } from "@tanstack/react-query";
 const ServiceDetails = () => {
+  const { data: reviewsData = [], refetch } = useQuery({
+    queryKey: ["reviews"],
+    queryFn: async () => {
+      const res = await fetch(
+        "https://service-review-server-self.vercel.app/reviews"
+      );
+      const data = await res.json();
+      return data;
+    },
+  });
   useTitle("Service Details");
   const { user } = useContext(MyContext);
   console.log(user);
@@ -20,6 +31,7 @@ const ServiceDetails = () => {
     service_name: tour_name,
     service_id: _id,
     user_email: user?.email,
+    reviewer: user?.displayName,
   };
   const handleBlur = (event) => {
     const review_field = event.target.name;
@@ -41,6 +53,7 @@ const ServiceDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
+          refetch();
           event.target.reset();
           toast.success("Review Added Successfully");
           console.log(data);
@@ -48,6 +61,8 @@ const ServiceDetails = () => {
         console.log(data);
       });
   };
+  console.log("Reviews-Data", reviewsData);
+
   return (
     <div>
       {/* Package details section */}
@@ -90,6 +105,26 @@ const ServiceDetails = () => {
               </div>
             </div>
           ))}
+        </div>
+        {/* Users review */}
+        <div>
+          <h2 className="mt-20 mb-5 text-center text-4xl font-bold">
+            Users reviews
+          </h2>
+          <div className="flex justify-center items-center flex-col gap-5">
+            {reviewsData.map((rev) => (
+              <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                <div className="flex items-center justify-evenly ">
+                  <p className="ml-5">{rev.review_title.review}</p>
+                  <button className="font-bold card-body">
+                    -- {rev.reviewer}
+                  </button>
+                  {/* <div className="card-actions justify-end"> */}
+                  {/* </div> */}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         {/* add review */}
         {user?.email ? (

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const UpdateReview = () => {
+  const navigate = useNavigate();
   const reviewData = useLoaderData();
   const [review, setReview] = useState({ reviewData });
   console.log(reviewData);
@@ -21,8 +23,9 @@ const UpdateReview = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          alert("user updated");
+          toast.success("User updated successfully.");
           console.log(data);
+          navigate("/reviews");
         }
       });
   };

@@ -18,17 +18,20 @@ const Login = () => {
   useTitle("Login");
   const [loginError, setLoginError] = useState("");
   const { signIn, googleSignIn, setLoading } = useContext(MyContext);
+
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  // const from = location.state?.from?.pathname || "/";
+  let { from } = location.state || { from: { pathname: "/" } };
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleSignIn = () => {
     googleSignIn(googleProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        setLoading(false);
         navigate(from, { replace: true });
+        // navigate.replace(from);
+        setLoading(false);
       })
       .catch((error) => {});
   };
@@ -39,15 +42,14 @@ const Login = () => {
     signIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        toast.success("Successfully created user");
+        toast.success("Successfully user logged in");
         console.log(user);
-
-        reset();
         navigate(from, { replace: true });
+        reset();
       })
       .catch((error) => {
         console.error(error);
-        setLoginError(error.message.slice(22,36));
+        setLoginError(error.message.slice(22, 36));
       })
       .finally(() => {
         setLoading(false);

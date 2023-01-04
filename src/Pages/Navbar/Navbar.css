@@ -1,9 +1,17 @@
+.navbar-logo {
+  margin-left: 7px;
+  border-radius: 6px;
+}
 /* Small devices (landscape phones, 576px and above till next break point) */
 @media (min-width: 320px) and (max-width: 767px) {
   .navbar ul {
     color: white;
     background: black;
-}
+  }
+  .navbar-logo {
+    margin-left: 0px;
+    margin-top: 0px;
+  }
 }
 
 /* Medium devices (tablets, 768px and above till next break point) */

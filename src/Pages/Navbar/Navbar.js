@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assests/logo.jpeg";
 import { MyContext } from "../../Contexts/AuthProvider/AuthProvider";
-import "./Navbar.css"
+import "./Navbar.css";
 const Navbar = () => {
   const { user, logOut } = useContext(MyContext);
 
@@ -22,9 +22,9 @@ const Navbar = () => {
           <li>
             <Link to="/reviews">My Reviews</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/addservice">Add Service</Link>
-          </li>
+          </li> */}
         </>
       )}
     </React.Fragment>
@@ -60,7 +60,7 @@ const Navbar = () => {
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
           <Link to={"/"}>
             <div className="w-10 rounded-full">
-              <img src={logo} alt="logo" />
+              <img className="navbar-logo" src={logo} alt="logo" />
             </div>
           </Link>
         </label>

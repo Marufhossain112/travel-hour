@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useTitle } from "../../Hooks/useTitle";
+import "./reviews.css";
 
 const Reviews = () => {
   useTitle("Reviews");

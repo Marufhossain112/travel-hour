@@ -8,6 +8,7 @@ import { useTitle } from "../../Hooks/useTitle";
 import { useForm } from "react-hook-form";
 
 const Register = () => {
+  const [confirmation, setConfirmation] = useState("");
   const {
     register,
     formState: { errors },
@@ -16,7 +17,8 @@ const Register = () => {
   } = useForm();
   const [signUpError, setSignUPError] = useState("");
   useTitle("Register");
-  const { signUpUser, setLoading, googleSignIn } = useContext(MyContext);
+  const { signUpUser, setLoading, googleSignIn, updateUser } =
+    useContext(MyContext);
   const handleSignUp = (data) => {
     // console.log(email, password);
     setSignUPError("");
@@ -27,14 +29,22 @@ const Register = () => {
         reset();
         toast.success("Successfully created user");
         navigate(from, { replace: true });
+        const userInfo = {
+          displayName: data.name,
+          photoURL: data.photoURL,
+        };
+        console.log(data.name);
+        updateUser(userInfo)
+          .then(() => {})
+          .catch((err) => console.log(err));
       })
       .catch((error) => {
         console.error(error);
         setSignUPError(error.message.slice(22, 36));
-      })
-      .finally(() => {
-        setLoading(false);
       });
+    if (data.password !== data.confirmPassword) {
+      setConfirmation("Password did not match.");
+    }
   };
 
   const navigate = useNavigate();
@@ -129,10 +139,37 @@ const Register = () => {
                   type="password"
                   placeholder="confirm password"
                   className="input input-bordered"
+                  {...register("confirmPassword", {
+                    required: "Confirm Password is required",
+                    minLength: {
+                      value: 6,
+                      message: "Password must be 6 characters long",
+                    },
+                    pattern: {
+                      value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                      message:
+                        "Password must have uppercase, number and special characters",
+                    },
+                  })}
                 />
-                {errors.password && (
-                  <p className="text-red-500">{errors.password.message}</p>
+                {errors.confirmPassword && (
+                  <p className="text-red-500">
+                    {errors.confirmPassword.message}
+                  </p>
                 )}
+                {<p className="text-red-500">{confirmation}</p>}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">photoURL</span>
+                </label>
+                <input
+                  name="photoURL"
+                  type="text"
+                  placeholder="photoURL"
+                  {...register("photoURL")}
+                  className="input input-bordered"
+                />
               </div>
               <p>
                 Already have an account ?{" "}
@@ -163,5 +200,4 @@ const Register = () => {
     </div>
   );
 };
-
 export default Register;
